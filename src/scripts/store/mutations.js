@@ -5,4 +5,8 @@ export default {
    *  return state;
    * }
    */
+  setProducts(state, payload) {
+    state.products.push(...payload);
+    return state;
+  }
 };

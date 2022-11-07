@@ -4,4 +4,8 @@ export default {
    *  context.commit('actionKey', payload)
    * }
    **/
+
+   setProducts(context, payload) {
+    context.commit('setProducts', payload);
+  }
 };
