@@ -59,6 +59,15 @@ export default class Cart extends Component {
     store.dispatch('addToCart', formObject)
 
     self.toggleCartDisplay()
+    
+    // highlight recenntly added product inside cart and scroll it into view
+    let addedProduct = self.element.querySelector(`#cart-product-${formObject.id}`)
+    addedProduct.classList.add('highlight')
+    addedProduct.scrollIntoView();
+    setTimeout(()=>{
+      addedProduct.classList.remove('highlight')
+    },600)
+
   }
   removeFromCart(formData) {
     store.dispatch('removeFromCart', formData.get('id'))
@@ -89,24 +98,24 @@ export default class Cart extends Component {
       let { id, title, price, thumbnail, quantity } = x;
       return `
         <article id="cart-product-${id}">
-      <a href="#">
-        <figure>
-          <img src="${thumbnail}" title="${title}" width="95" height="95">
-        </figure>
-      </a>  
-      <div>
-        <h4>${title}</h4>
-        <b>$${Number(price).toFixed(2)}</b>
-        <dl>
-          <dt>Qty:</dt>
-          <dd>${quantity}</dd>
-        </dl>
-      </div>
-      <form data-type="remove-product-cart-form">
-        <input type="hidden" name="id" value="${id}">
-        <button type="submit">Remove</button>
-      </form>
-    </article >
+          <a href="#">
+            <figure>
+              <img src="${thumbnail}" title="${title}" width="95" height="95">
+            </figure>
+          </a>  
+          <div>
+            <h4>${title}</h4>
+            <b>$${Number(price).toFixed(2)}</b>
+            <dl>
+              <dt>Qty:</dt>
+              <dd>${quantity}</dd>
+            </dl>
+          </div>
+          <form data-type="remove-product-cart-form">
+            <input type="hidden" name="id" value="${id}">
+            <button type="submit">Remove</button>
+          </form>
+        </article>
       `
     }).join('')
   }
