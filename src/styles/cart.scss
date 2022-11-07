@@ -8,6 +8,7 @@ Styles for Cart
   height: 100vh;
   width: 100vw;
   position: fixed;
+  z-index: 1;
 
   .wrapper {
     background-color: var(--white);
