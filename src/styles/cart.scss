@@ -29,6 +29,17 @@ Styles for Cart
     }
   }
 
+  .backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: var(--black);
+    opacity: 0.4;
+    z-index: -1;
+  }
+
   .cart-header {
     display: flex;
     justify-content: space-between;
