@@ -28,4 +28,81 @@ Styles for Cart
       margin: 0 auto;
     }
   }
+
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--black);
+
+    h3 {
+      font-size: var(--text-2xl);
+    }
+
+    a {
+      text-decoration: none;
+      font-size: var(--text-2xl);
+      color: var(--black);
+    }
+  }
+
+  .cart-body {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  article {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+
+    figure,img {
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    & > div {
+      align-self: flex-start;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      h4,b {
+        font-size: var(--text-base);
+        font-weight: 400;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      dl {
+        display: flex;
+
+        dd {
+          margin-left: 4px;
+        }
+      }
+    }
+
+    form {
+      margin-left: auto;
+
+      button {
+        background-color: var(--black);
+        border: none;
+        color: var(--white);
+        font-size: var(--text-xs);
+        padding: 8px 14px;
+        text-transform: uppercase;
+      }
+    }
+  }
 }

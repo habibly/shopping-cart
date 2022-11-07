@@ -73,8 +73,28 @@ export default class Cart extends Component {
     }
 
     cartBody.innerHTML = store.state.cart.map((x) => {
+      
+      let { id, title, price, thumbnail, quantity } = x;
       return `
-        <pre>${JSON.stringify(x, null, "  ")}</pre>
+      <article id="cart-product-${id}">
+      <a href="#">
+        <figure>
+          <img src="${thumbnail}" title="${title}" width="95" height="95">
+        </figure>
+      </a>  
+      <div>
+        <h4>${title}</h4>
+        <b>$${Number(price).toFixed(2)}</b>
+        <dl>
+          <dt>Qty:</dt>
+          <dd>${quantity}</dd>
+        </dl>
+      </div>
+      <form>
+        <input type="hidden" name="id" value="${id}">
+        <button type="submit">Remove</button>
+      </form>
+    </article>
       `
     }).join('')
   }
