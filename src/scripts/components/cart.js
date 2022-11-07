@@ -27,6 +27,13 @@ export default class Cart extends Component {
         self.addToCart(formData)
       }
 
+      if(e.target.dataset.type === 'remove-product-cart-form'){
+        e.preventDefault()
+
+        let formData = new FormData(e.target)
+        self.removeFromCart(formData)
+      }
+
     })
 
     store.state.cart = JSON.parse(localStorage.getItem('cartItems')) || []
@@ -52,6 +59,10 @@ export default class Cart extends Component {
     store.dispatch('addToCart', formObject)
 
     self.toggleCartDisplay()
+  }
+  removeFromCart(formData){
+    store.dispatch('removeFromCart', formData.get('id'))
+    console.log(store.state.cart)
   }
   render() {
     let self = this;
@@ -90,7 +101,7 @@ export default class Cart extends Component {
           <dd>${quantity}</dd>
         </dl>
       </div>
-      <form>
+      <form data-type="remove-product-cart-form">
         <input type="hidden" name="id" value="${id}">
         <button type="submit">Remove</button>
       </form>
