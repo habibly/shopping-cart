@@ -1,0 +1,91 @@
+@import "./base/vars.scss";
+
+/**
+Styles for product list
+**/
+
+#products-list {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 30px;
+    padding-top: 30px;
+
+    @media screen and (min-width: $md) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media screen and (min-width: $lg) {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+
+  article {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+
+    @media screen and (min-width: $md) {
+      padding: 10px;
+      border: 1px solid var(--black);
+      flex-direction: column;
+    }
+
+    figure,img {
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
+
+      @media screen and (min-width: $md) {
+        width: 100%;
+        height: 233px;
+      }
+    }
+
+    & > div {
+      align-self: flex-start;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      @media screen and (min-width: $md) {
+        padding-top: 10px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      h2,b {
+        font-size: var(--text-base);
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+    }
+
+    form {
+      margin-left: auto;
+
+      @media screen and (min-width: $md) {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      button {
+        background-color: var(--black);
+        border: none;
+        color: var(--white);
+        font-size: var(--text-xs);
+        padding: 8px 14px;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        @media screen and (min-width: $md) {
+          width: 100%;
+          padding: 12px 14px;
+        }
+      }
+    }
+  }
+}
