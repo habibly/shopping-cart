@@ -51,6 +51,7 @@ export default class Cart extends Component {
     
     store.dispatch('addToCart', formObject)
 
+    self.toggleCartDisplay()
   }
   render() {
     let self = this;
