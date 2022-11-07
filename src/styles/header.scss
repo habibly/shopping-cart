@@ -1,0 +1,30 @@
+/**
+Styles for header
+**/
+
+header {
+  background-color: var(--black);
+  padding: 20px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      color: var(--white);
+      font-size: var(--text-xl);
+      font-weight: 300;
+    }
+
+    nav {
+      display: inline-block;
+
+      a {
+        color: var(--white);
+        font-size: var(--text-xl);
+        font-weight: 300;
+        text-decoration: none;
+      }
+    }
+  }
+}
