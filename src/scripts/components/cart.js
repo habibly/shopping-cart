@@ -19,6 +19,16 @@ export default class Cart extends Component {
       }
     })
 
+    window.addEventListener('submit', (e)=>{
+      if(e.target.dataset.type === 'add-to-cart-form'){
+        e.preventDefault()
+
+        let formData = new FormData(e.target)
+        self.addToCart(formData)
+      }
+
+    })
+
     store.state.cart = JSON.parse(localStorage.getItem('cartItems')) || []
 
   }
@@ -32,6 +42,15 @@ export default class Cart extends Component {
       self.element.style.display = 'none'
       document.body.style.overflowY = 'auto'
     }
+  }
+  addToCart(formData){
+    let self = this;
+
+    var formObject = {};
+    formData.forEach((value, key) => formObject[key] = value);
+    
+    store.dispatch('addToCart', formObject)
+
   }
   render() {
     let self = this;
@@ -54,7 +73,7 @@ export default class Cart extends Component {
 
     cartBody.innerHTML = store.state.cart.map((x) => {
       return `
-        <pre>${JSON.stringify(x, null, "2")}</pre>
+        <pre>${JSON.stringify(x, null, "  ")}</pre>
       `
     }).join('')
   }

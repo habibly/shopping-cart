@@ -8,5 +8,20 @@ export default {
   setProducts(state, payload) {
     state.products.push(...payload);
     return state;
-  }
+  },
+  
+  addToCart(state, payload) {
+
+    let selectedItem = payload;
+    let search = state.cart.find((x) => x.id === selectedItem.id);
+
+    if(search === undefined){
+      state.cart.push(payload);
+    }else {
+      search.quantity = `${Number(search.quantity)+1}`
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(state.cart))
+    return state;
+  },
 };
