@@ -1,10 +1,19 @@
 import '../styles/index.scss';
 import '../styles/header.scss';
 import '../styles/products-list.scss';
+import '../styles/cart.scss';
 
 
 import ProductData from './components/fetch-products.js';
 import ProductsList from './components/products-list.js';
+
+/**
+ * Intialize product data and product list instances
+ * **/
+
+import Cart from './components/cart.js';
+const cartInstance = new Cart();
+cartInstance.render()
 
 
 /**

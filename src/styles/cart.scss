@@ -1,0 +1,31 @@
+@import "./base/vars.scss";
+
+/**
+Styles for Cart
+**/
+
+#cart {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+
+  .wrapper {
+    background-color: var(--white);
+    color: var(--black);
+    position: fixed;
+    height: 90vh;
+    border-radius: 8px;
+    padding: 0 20px;
+    overflow-y: auto;
+    width: 92%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (min-width: $md) {
+      max-width: 768px;
+      height: 70vh;
+      margin: 0 auto;
+    }
+  }
+}
