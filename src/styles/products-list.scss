@@ -88,4 +88,37 @@ Styles for product list
       }
     }
   }
+
+  .load-more {
+    margin-top: 48px;
+    margin-bottom: 48px;
+
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      border: none;
+      background-color: var(--black);
+      color: var(--white);
+      font-size: var(--text-xl);
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+
+      @media screen and (min-width: $md) {
+        max-width: 376px;
+        margin: 0 auto;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
 }
