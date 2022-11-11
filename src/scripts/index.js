@@ -35,7 +35,7 @@ learnmorebtn.addEventListener('click', (e)=> {
   e.preventDefault();
   
   // update page number and fetch next page
-  productDataInstance.fetchData(productsListInstance.page+=1).then(res => {
+  productDataInstance.fetchData(productsListInstance.offset+=6).then(res => {
     if(res.length === 0){
       learnmorebtn.insertAdjacentHTML('beforebegin', `<p>You've reached the end of listing. </p>`)
       learnmorebtn.disabled = true

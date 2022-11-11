@@ -10,7 +10,7 @@ export default class ProductsList extends Component {
       element: document.querySelector('#products-list')
     })
     let self = this;
-    self.page = 1
+    self.offset = 0
 
     // define blank products array in state to avoid errors
     // store.state.products = []
